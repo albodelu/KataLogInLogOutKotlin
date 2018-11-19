@@ -29,7 +29,7 @@ android {
   }
 }
 
-def arrow_version = "0.7.3"
+def arrow_version = "0.8.1"
 
 dependencies {
   implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -63,7 +63,7 @@ configurations {
 }
 
 dependencies {
-  ktlint "com.github.shyiko:ktlint:0.28.0"
+  ktlint "com.github.shyiko:ktlint:0.29.0"
 }
 
 task ktlint(type: JavaExec, group: "verification") {
