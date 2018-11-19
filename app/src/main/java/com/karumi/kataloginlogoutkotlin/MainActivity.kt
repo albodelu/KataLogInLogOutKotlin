@@ -5,16 +5,15 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.experimental.DefaultDispatcher
-import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.Dispatchers
 
 class MainActivity : AppCompatActivity(), Presenter.View {
 
     private val presenter = Presenter(
         logInLogOutKata = LogInLogOutKata(Clock()),
         view = this,
-        asyncContext = DefaultDispatcher,
-        uiContext = UI
+        asyncContext = Dispatchers.IO,
+        uiContext = Dispatchers.Main
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

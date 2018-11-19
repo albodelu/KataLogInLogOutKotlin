@@ -6,7 +6,8 @@ import arrow.core.right
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
-import kotlinx.coroutines.experimental.Unconfined
+import kotlinx.coroutines.Dispatchers.Unconfined
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,6 +29,7 @@ class PresenterTest {
 
     private lateinit var presenter: Presenter
 
+    @ExperimentalCoroutinesApi
     @Before
     fun setUp() {
         presenter = Presenter(kata, view, Unconfined, Unconfined)

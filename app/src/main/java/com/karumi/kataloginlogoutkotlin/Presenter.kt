@@ -1,6 +1,6 @@
 package com.karumi.kataloginlogoutkotlin
 
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlin.coroutines.CoroutineContext
 
 class Presenter(
     private val logInLogOutKata: LogInLogOutKata,
