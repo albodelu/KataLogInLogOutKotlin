@@ -1,8 +1,10 @@
 package com.karumi.kataloginlogoutkotlin
 
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 interface AsyncExecutor {
 
@@ -10,10 +12,10 @@ interface AsyncExecutor {
     val uiContext: CoroutineContext
 
     fun async(block: suspend CoroutineScope.() -> Unit) {
-        launch(uiContext) { block() }
+        GlobalScope.launch(uiContext) { block() }
     }
 
     suspend fun <T> CoroutineScope.await(block: suspend CoroutineScope.() -> T): T {
-        return kotlinx.coroutines.experimental.async(asyncContext) { block.invoke(this) }.await()
+        return async(asyncContext) { block.invoke(this) }.await()
     }
 }

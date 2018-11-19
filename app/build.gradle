@@ -44,8 +44,8 @@ dependencies {
   implementation "io.arrow-kt:arrow-instances-data:$arrow_version"
   kapt "io.arrow-kt:arrow-annotations-processor:$arrow_version"
   implementation "co.metalab.asyncawait:asyncawait:1.0.0"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.2"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.2"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
   implementation "joda-time:joda-time:2.10"
   testImplementation "junit:junit:4.12"
   testImplementation "org.mockito:mockito-core:2.16.0"
@@ -80,10 +80,4 @@ task ktlintFormat(type: JavaExec, group: "formatting") {
   classpath = configurations.ktlint
   main = "com.github.shyiko.ktlint.Main"
   args "-F", "src/**/*.kt"
-}
-
-kotlin {
-  experimental {
-    coroutines "enable"
-  }
 }
